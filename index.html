@@ -125,7 +125,7 @@
   // Vervolgens opslaan als csv en dan uploaden in de repo*/
    var customLayer = L.geoJson(null, {
     onEachFeature: function(feature, layer) {
-      layer.bindPopup('<b>'+feature.properties.Name+'</b><p>Adres: '+feature.properties.Found+'</p><p>Tag: '+feature.properties.Description+'</p>');
+      layer.bindPopup('<b>'+feature.properties.Name+'</b>Adres: '+feature.properties.Found+'Tag: '+feature.properties.Description+');
           
     }
    });
