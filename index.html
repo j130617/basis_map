@@ -41,6 +41,7 @@
 	<div id="map"></div>
    
     <script>
+  /* Declaring the starting parameters for the map */
   var map = L.map('map').setView([52.09, 5.10], 8);
        
     
@@ -78,7 +79,7 @@
         geocoder.options.geocoder.options.geocodingQueryParams.viewbox = mapBounds;
       }
 	    
-   // Add location control
+   /* Add location control */
    var locationControl = L.control.locate({
      keepCurrentZoomLevel: true,
      returnToPrevBounds: true,
@@ -87,14 +88,14 @@
         title: "Waar ben ik?"}
      }).addTo(map);
      
-	    
+  /* Declaring the source for the map tiles */	    
   var carto = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
     attribution: 'Map by <a href="http://openstreetmap.org">OpenStreetMap</a>, Map tile by <a href="https://carto.com/attribution">CARTO</a>',
     maxZoom: 18,
   }).addTo(map); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
    controlLayers.addBaseLayer(carto, 'Carto Light basemap');
    
-   /* code voor search box*/
+   /* code voor search box */
    map.on('click', function(e) {
 			geocoder.reverse(e.latlng, map.options.crs.scale(map.getZoom()), function(results) {
 				var r = results[0];
